@@ -1,7 +1,6 @@
 plugins {
-    kotlin("android")
-    kotlin("kapt")
     id("com.android.library")
+    id("com.android.legacy-kapt")
 }
 
 dependencies {

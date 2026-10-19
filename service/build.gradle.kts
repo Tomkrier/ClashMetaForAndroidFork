@@ -1,5 +1,4 @@
 plugins {
-    kotlin("android")
     id("kotlinx-serialization")
     id("com.android.library")
     id("com.google.devtools.ksp")
@@ -20,5 +19,3 @@ dependencies {
     implementation(libs.kaidl.runtime)
     implementation(libs.rikkax.multiprocess)
 }
-
-
