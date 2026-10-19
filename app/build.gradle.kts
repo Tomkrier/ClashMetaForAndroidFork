@@ -3,9 +3,8 @@ import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 plugins {
-    kotlin("android")
-    kotlin("kapt")
     id("com.android.application")
+    id("com.android.legacy-kapt")
 }
 
 dependencies {

@@ -9,8 +9,12 @@ include(":hideapi")
 
 pluginManagement {
     repositories {
+        google()
         mavenLocal()
         mavenCentral()
         gradlePluginPortal()
+    }
+    plugins {
+        id("com.android.legacy-kapt") version "9.4.1"
     }
 }
