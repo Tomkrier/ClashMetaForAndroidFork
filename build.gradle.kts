@@ -55,9 +55,10 @@ subprojects {
                 else "com.github.kr328.clash.$name"
             }
 
-            minSdk = 21
-            targetSdk = 35
-
+            minSdk = 23
+            targetSdk = 37
+            buildToolsVersion = "37.0.0"
+            compileSdkVersion = "android-37.2"
             versionName = "2.11.35"
             versionCode = 211035
 
@@ -65,23 +66,26 @@ subprojects {
             resValue("integer", "release_code", "$versionCode")
 
             ndk {
-                abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+//                abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+                abiFilters += listOf("arm64-v8a")
             }
 
             externalNativeBuild {
                 cmake {
-                    abiFilters("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+//                    abiFilters("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+                    abiFilters("arm64-v8a")
                 }
             }
 
             if (!isApp) {
                 consumerProguardFiles("consumer-rules.pro")
             } else {
-                setProperty("archivesBaseName", "cmfa-$versionName")
+//                setProperty("archivesBaseName", "cmfa-$versionName")
+                project.extensions.getByType<BasePluginExtension>().archivesName.set("cmfa-$versionName")
             }
         }
 
-        ndkVersion = "29.0.14206865"
+        ndkVersion = "30.0.16248370"
 
         compileSdkVersion(defaultConfig.targetSdk!!)
 
@@ -188,14 +192,15 @@ subprojects {
                     isEnable = true
                     isUniversalApk = true
                     reset()
-                    include("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+//                    include("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
+                    include("arm64-v8a")
                 }
             }
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
+            sourceCompatibility = JavaVersion.VERSION_25
+            targetCompatibility = JavaVersion.VERSION_25
         }
     }
 }

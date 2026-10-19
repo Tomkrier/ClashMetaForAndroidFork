@@ -21,11 +21,4 @@ dependencies {
     implementation(libs.rikkax.multiprocess)
 }
 
-afterEvaluate {
-    android {
-        libraryVariants.forEach {
-            sourceSets[it.name].kotlin.srcDir(buildDir.resolve("generated/ksp/${it.name}/kotlin"))
-            sourceSets[it.name].java.srcDir(buildDir.resolve("generated/ksp/${it.name}/java"))
-        }
-    }
-}
+
